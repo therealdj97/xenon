@@ -13,16 +13,15 @@ const methodOverride = require('method-override')
 const path =require ('path');
 
 
-// Connection URL
+
 const url = 'mongodb+srv://dhirajjohare1497:12345@cluster0.l2hblfd.mongodb.net/?retryWrites=true&w=majority';
 
-// Database Name
+
 const dbName = 'xenon';
 
-// Create a new MongoClient
+
 const client = new MongoClient(url, { useUnifiedTopology: true });
 
-// Connect to the MongoDB server
 client.connect((err) => {
   if (err) {
     console.error('Failed to connect to the database:', err);
@@ -33,9 +32,42 @@ client.connect((err) => {
 
   const db = client.db(dbName);
   console.log(db)
-
-  // Start your Express server or perform any further database-related operations here
 });
+
+
+
+const express = require('express');
+const firebase = require('firebase/app');
+
+
+const firebaseConfig = {
+  // Your Firebase project's configuration object
+
+
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA0T0Sp0qB_TlHW3oA_Xlr5wZtR_Sfp4vQ",
+  authDomain: "xenon-95c7d.firebaseapp.com",
+  projectId: "xenon-95c7d",
+  storageBucket: "xenon-95c7d.appspot.com",
+  messagingSenderId: "16571843709",
+  appId: "1:16571843709:web:067f5cd1ac8abd8a3a1d14",
+  measurementId: "G-BE94LFLMTQ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+};
+firebase.initializeApp(firebaseConfig);
 
 
 

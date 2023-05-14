@@ -12,3 +12,10 @@
  2. login
  3. register
  4. contact us
+
+## how to use
+
+1. do npm install => to install all packages
+2. npm run devStart => to start project
+3. create .env file
+4. add a secret key into env file => SESSION_SECRET  = secret
